@@ -5,6 +5,33 @@ export const StyledHeader = styled.header`
   height: calc(100vh - 100px);
   display: flex;
 
+  opacity: 1;
+
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.05;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.9;
+    }
+  }
+
   .intro {
     flex-basis: 50%;
     display: flex;
