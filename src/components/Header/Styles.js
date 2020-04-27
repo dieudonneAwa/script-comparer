@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { screens } from '../../globals/styles';
 
 export const StyledHeader = styled.header`
   width: 100%;
@@ -32,17 +33,89 @@ export const StyledHeader = styled.header`
     }
   }
 
+  .bg-header {
+    img {
+      position: absolute;
+      right: 3%;
+      height: 700px;
+      width: 750px;
+    }
+
+    ${screens.large`
+      img {
+        height: 600px;
+        width: 1200px;
+      }
+    `}
+    ${screens.desktop`
+      img {
+        height: 700px;
+        width: 800px;
+      }
+    `}
+    ${screens.tablet`
+      img {
+        height: 600px;
+        width: 650px;
+      }
+    `}
+    ${screens.phone`
+      img {
+        height: 500px;
+        width: 50%;
+      }
+    `}
+    ${screens.smallPhone`
+      img {
+        height: 300px;
+        width: 70%;
+        left: 15%;
+        top: 35%;
+      }
+    `}
+  }
+
   .intro {
     flex-basis: 50%;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding-left: 120px;
+    z-index: 10;
     h1 {
-      font-size: 4rem;
+      font-size: 4.5rem;
       color: #6c63ff;
     }
+
+    ${screens.desktop`
+      padding-top: 190px;
+    `}
+    ${screens.tablet`
+      padding-top: 170px;
+      padding-left: 50px;
+      h1 {
+        font-size: 4rem;
+        letter-spacing: -0.5px;
+      }
+    `}
+    ${screens.phone`
+      padding-top: 150px;
+      padding-left: 50px;
+      flex-basis: 70%;
+      h1 {
+        font-size: 3rem;
+      }
+    `}
+    ${screens.smallPhone`
+      flex-basis: 100%;
+      align-items: center;
+      padding-top: 30px;
+      padding-left: 0;
+      h1 {
+        font-size: 3rem;
+      }
+    `}
 
     .get-started {
       background-color: #1f2c46;
@@ -58,9 +131,9 @@ export const StyledHeader = styled.header`
         cursor: pointer;
       }
     }
-    .submit-comparison {
+    .login {
       background-color: #f1f1f1;
-      width: 200px;
+      width: 100px;
       padding: 10px;
       color: #1f2c46;
       border: 1px solid rgba(108, 99, 255, 0.1);
@@ -79,15 +152,5 @@ export const StyledHeader = styled.header`
         cursor: pointer;
       }
     }
-  }
-
-  .bg-header {
-    align-self: center;
-    height: 80%;
-    flex-basis: 50%;
-    margin-right: 60px;
-    background-image: url('/undraw_file_sync_ot38.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 `;

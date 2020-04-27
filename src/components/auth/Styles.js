@@ -1,13 +1,11 @@
 import styled from 'styled-components';
+import { screens } from '../../globals/styles';
 
 export const StyledAuth = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 100px);
-  opacity: 1;
-
-  transition: opacity 0.5s ease-in-out;
 
   form {
     background-color: #fafafa;
@@ -19,7 +17,7 @@ export const StyledAuth = styled.div`
     flex-flow: column nowrap;
     opacity: 1;
     animation-name: fadein;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: ease-in-out;
 
     @keyframes fadein {
@@ -85,6 +83,33 @@ export const StyledAuth = styled.div`
     color: #1f2c46;
     opacity: 1;
 
+    button {
+      font-size: 1.5rem;
+      border: 1px solid #f1f1f1;
+      border-radius: 50%;
+      padding: 10px;
+      background-color: #fff;
+      width: 60px;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease-out;
+      }
+    }
+
+    ${screens.phone`
+      left: 40px;
+      button {
+        width: 50px;
+        padding: 5px;
+      }
+    `}
+    ${screens.smallPhone`
+      left: 5px;
+      border: 1px dashed yellow;
+    `}
+
     animation-name: fadein;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
@@ -107,20 +132,6 @@ export const StyledAuth = styled.div`
       }
       100% {
         opacity: 0.9;
-      }
-    }
-
-    button {
-      font-size: 1.5rem;
-      border: 1px solid #f1f1f1;
-      border-radius: 50%;
-      padding: 10px;
-      width: 60px;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-
-      &:hover {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        transition: all 0.5s ease-out;
       }
     }
   }

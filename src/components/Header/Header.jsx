@@ -17,11 +17,13 @@ const Header = () => {
         <button className="get-started" onClick={navigateToSignUp}>
           GET STARTED
         </button>
-        <button className="submit-comparison" onClick={navigateToSignIn}>
-          Submit for comparison <span>&#8594;</span>
+        <button className="login" onClick={navigateToSignIn}>
+          Login <span>&#8594;</span>
         </button>
       </div>
-      <div className="bg-header"></div>
+      <div className="bg-header">
+        <img src="/undraw_file_sync_ot38.svg" alt="" />
+      </div>
     </StyledHeader>
   );
 };
