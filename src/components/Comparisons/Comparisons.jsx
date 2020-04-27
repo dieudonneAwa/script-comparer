@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { FileZip  } from 'styled-icons/icomoon';
+import React from 'react';
+import styled from 'styled-components';
+import { FileZip } from 'styled-icons/icomoon';
 import { NavigateBack } from '../auth/Styles';
 import { useHistory } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const StyledComparisons = styled.div`
 
   h1 {
     text-align: center;
-    margin: 100px;
+    margin: 70px;
   }
 
   #comparisons {
@@ -69,21 +69,50 @@ const StyledComparisons = styled.div`
       opacity: 0.9;
     }
   }
+
+  .compare-btn {
+    width: 150px;
+    position: relative;
+    align-self: flex-end;
+    margin: 0 150px 20px 0;
+    height: 30px;
+    border: 1px solid #1f2c46;
+    background-color: #1f2c46;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(108, 99, 255, 0.1);
+    font-size: 1;
+
+    &:hover {
+      box-shadow: 0 30px 60px rgba(108, 99, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.5s ease-out;
+      span {
+        position: absolute;
+        transform: translateX(70%);
+        transition: all 0.5s ease-out;
+      }
+    }
+  }
 `;
 
 const Comparisons = () => {
   const router = useHistory();
   const navigateBack = () => router.push('/');
-  
+
+  const goToCompare = () => router.replace('/compare');
+
   return (
     <StyledComparisons>
       <NavigateBack>
         <button onClick={navigateBack}>&#8592;</button> Home
       </NavigateBack>
       <h1>
-        <FileZip style={{ width: '2rem', marginRight: '1rem', marginTop: '-5px' }} />
+        <FileZip
+          style={{ width: '2rem', marginRight: '1rem', marginTop: '-5px' }}
+        />
         My Comparisons
       </h1>
+      <button className="compare-btn" onClick={goToCompare}>Create comparison <span>&#8594;</span></button>
       <table id="comparisons">
         <tr>
           <th>Student names</th>
@@ -128,6 +157,6 @@ const Comparisons = () => {
       </table>
     </StyledComparisons>
   );
-}
+};
 
-export default Comparisons
+export default Comparisons;
