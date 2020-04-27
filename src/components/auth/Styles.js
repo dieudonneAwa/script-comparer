@@ -75,64 +75,65 @@ export const StyledAuth = styled.div`
       margin-top: 10px;
     }
   }
+`;
 
-  .navigate-back {
-    position: absolute;
-    top: 50px;
-    left: 80px;
-    color: #1f2c46;
-    opacity: 1;
+export const NavigateBack = styled.div`
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  color: #1f2c46;
+  opacity: 1;
 
-    button {
-      font-size: 1.5rem;
-      border: 1px solid #f1f1f1;
-      border-radius: 50%;
-      padding: 10px;
-      background-color: #fff;
-      width: 60px;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  button {
+    font-size: 1.5rem;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #fff;
+    width: 60px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 
-      &:hover {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        transition: all 0.5s ease-out;
-      }
+    &:hover {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease-out;
+      cursor: pointer;
     }
+  }
 
-    ${screens.phone`
-      left: 40px;
-      button {
-        width: 50px;
-        padding: 5px;
-      }
-    `}
-    ${screens.smallPhone`
-      left: 5px;
-      border: 1px dashed yellow;
-    `}
+  ${screens.phone`
+    left: 40px;
+    button {
+      width: 50px;
+      padding: 5px;
+    }
+  `}
+  ${screens.smallPhone`
+    left: 5px;
+    border: 1px dashed yellow;
+  `}
 
-    animation-name: fadein;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 
-    @keyframes fadein {
-      0% {
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.05;
-      }
-      40% {
-        opacity: 0.4;
-      }
-      60% {
-        opacity: 0.6;
-      }
-      80% {
-        opacity: 0.8;
-      }
-      100% {
-        opacity: 0.9;
-      }
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.05;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.9;
     }
   }
 `;

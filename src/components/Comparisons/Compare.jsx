@@ -3,7 +3,7 @@ import React from 'react'
 const Compare = () => {
   return (
     <div>
-      Compare Component
+      Compare Scripts
     </div>
   );
 };

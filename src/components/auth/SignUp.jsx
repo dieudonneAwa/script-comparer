@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { StyledAuth } from './Styles';
+import { StyledAuth, NavigateBack } from './Styles';
 
 const SignUp = () => {
   const router = useHistory();
 
   const navigateBack = () => router.goBack();
 
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    router.push('/comparisons');
+  }
+
   return (
     <StyledAuth>
-      <div className="navigate-back">
+      <NavigateBack>
         <button onClick={navigateBack}>&#8592;</button> Back
-      </div>
+      </NavigateBack>
       <form>
         <h2>Register</h2>
         <div className="form-group">
@@ -36,7 +41,9 @@ const SignUp = () => {
             placeholder="Password"
           />
         </div>
-        <button className="sign-up">Sign up</button>
+        <button className="sign-up" onClick={handleSignUp}>
+          Click to vew History page
+        </button>
         <p>
           Already have an account? <Link to="/sign_in">Sign in</Link>
         </p>

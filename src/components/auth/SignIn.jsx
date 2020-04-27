@@ -1,17 +1,21 @@
 import React from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
-import { StyledAuth } from './Styles';
+import { StyledAuth, NavigateBack } from './Styles';
 
 const SignIn = () => {
   const router = useHistory();
 
   const navigateBack = () => router.goBack();
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    router.push('/comparisons');
+  };
 
   return (
     <StyledAuth>
-      <div className="navigate-back">
+      <NavigateBack>
         <button onClick={navigateBack}>&#8592;</button> Back
-      </div>
+      </NavigateBack>
       <form>
         <h2>Login</h2>
         <div className="form-group">
@@ -32,7 +36,9 @@ const SignIn = () => {
             placeholder="Password"
           />
         </div>
-        <button className="sign-up">Login</button>
+        <button className="sign-up" onClick={handleSignIn}>
+          Click to vew History page
+        </button>
         <p>
           Don't have an Account?{' '}
           <NavLink to="/sign_up">Create an account</NavLink>
