@@ -1,5 +1,5 @@
 import createDataContext from './createDataContext';
-import authReducer from '../reducers/authReducer.js';
+import authReducer from '../reducers/authReducer';
 import { signUp, signIn } from '../actions/authActions';
 
 export const initialState = {

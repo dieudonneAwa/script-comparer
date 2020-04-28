@@ -8,7 +8,7 @@ import { StyledAuth, NavigateBack } from './Styles';
 
 const SignUp = () => {
   const router = useHistory();
-  const { signUp, state } = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,12 +28,11 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (name && email && password) {
+      console.log(email);
       const res = await signUp({ name, email, password });
       if (res) router.push('/comparisons');
     }
   }
-
-  console.log(state);
 
   return (
     <StyledAuth>
