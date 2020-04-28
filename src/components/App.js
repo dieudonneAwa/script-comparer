@@ -5,7 +5,8 @@ import Footer from './Footer/Footer';
 import SignUp from './auth/SignUp';
 import SignIn from './auth/SignIn';
 import Compare from './Comparisons/Compare';
-import Comparisons from './Comparisons/Comparisons';
+import Comparisons from './Comparisons/ListComparisons';
+import Comparison from './Comparisons/Comparison';
 
 const App = () => (
   <>
@@ -16,6 +17,7 @@ const App = () => (
         <Route path="/sign_in" component={SignIn} />
         <Route path="/compare" component={Compare} />
         <Route path="/comparisons" component={Comparisons} />
+        <Route path="/comparison" component={Comparison} />
       </Switch>
     </div>
     <Footer />

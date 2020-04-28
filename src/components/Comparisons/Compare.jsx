@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { FileZip } from 'styled-icons/icomoon';
 import SubmissionForm from './SubmissionForm';
 import { NavigateBack } from '../auth/Styles';
-import { useHistory } from 'react-router-dom';
 
 const StyledCompare = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const StyledCompare = styled.div`
 
 const Compare = () => {
   const router = useHistory();
-  const navigateBack = () => router.goBack();
+  const navigateBack = () => router.replace('/comparisons');
   
   return (
     <StyledCompare>

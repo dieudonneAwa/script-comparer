@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FileZip } from 'styled-icons/icomoon';
+import Avatar from 'react-avatar';
 import { NavigateBack } from '../auth/Styles';
 import { useHistory } from 'react-router-dom';
 
@@ -11,6 +12,15 @@ const StyledComparisons = styled.div`
   flex-flow: column nowrap;
   align-content: center;
   color: #1f2c46;
+
+  .avatar {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   h1 {
     text-align: center;
@@ -103,6 +113,9 @@ const Comparisons = () => {
 
   return (
     <StyledComparisons>
+      <div className="avatar">
+        <Avatar name="Sami" email="sami@gmail.com" round size="38" />
+      </div>
       <NavigateBack>
         <button onClick={navigateBack}>&#8592;</button> Home
       </NavigateBack>
@@ -112,48 +125,54 @@ const Comparisons = () => {
         />
         My Comparisons
       </h1>
-      <button className="compare-btn" onClick={goToCompare}>Create comparison <span>&#8594;</span></button>
+      <button className="compare-btn" onClick={goToCompare}>
+        Create comparison <span>&#8594;</span>
+      </button>
       <table id="comparisons">
-        <tr>
-          <th>Student names</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>John Doe and Johnson</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Johnson and James</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Williams and Tyler</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>James and Stephan</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Tyler and John Doe</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Stephan and Catherina</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Helena and Williams</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Catherina and Elija</td>
-          <td>delete</td>
-        </tr>
-        <tr>
-          <td>Elija and Rebeca</td>
-          <td>delete</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Student names</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe and Johnson</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Johnson and James</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Williams and Tyler</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>James and Stephan</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Tyler and John Doe</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Stephan and Catherina</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Helena and Williams</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Catherina and Elija</td>
+            <td>delete</td>
+          </tr>
+          <tr>
+            <td>Elija and Rebeca</td>
+            <td>delete</td>
+          </tr>
+        </tbody>
       </table>
     </StyledComparisons>
   );

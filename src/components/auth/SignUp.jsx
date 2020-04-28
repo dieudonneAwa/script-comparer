@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import {
+  Context as AuthContext,
+  Provider as AuthProvider,
+} from '../../context/authContext';
 import { StyledAuth, NavigateBack } from './Styles';
 
 const SignUp = () => {
   const router = useHistory();
+  const { signUp, state } = useContext(AuthContext);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const navigateBack = () => router.goBack();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    router.push('/comparisons');
+  const handleChange = (e) => {
+    if (e.target.name === 'name') {
+      setName(e.target.value);
+    } else if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    } else if (e.target.name === 'password') {
+      setPassword(e.target.value);
+    }
   }
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    if (name && email && password) {
+      const res = await signUp({ name, email, password });
+      if (res) router.push('/comparisons');
+    }
+  }
+
+  console.log(state);
 
   return (
     <StyledAuth>
@@ -21,7 +44,13 @@ const SignUp = () => {
         <h2>Register</h2>
         <div className="form-group">
           <label htmlFor="name">Enter Name</label>
-          <input type="text" name="name" id="name" placeholder="Full name" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Full name"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="email">Enter Email</label>
@@ -30,6 +59,7 @@ const SignUp = () => {
             name="email"
             id="email"
             placeholder="Email address"
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -39,6 +69,7 @@ const SignUp = () => {
             name="password"
             id="password"
             placeholder="Password"
+            onChange={handleChange}
           />
         </div>
         <button className="sign-up" onClick={handleSignUp}>
@@ -52,4 +83,8 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default () => (
+  <AuthProvider>
+    <SignUp />
+  </AuthProvider>
+);
